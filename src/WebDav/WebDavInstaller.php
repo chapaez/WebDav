@@ -3,10 +3,10 @@ namespace Uni\WebDav;
 use Composer\Script\Event;
 use Composer\Installer\PackageEvent;
 class WebDavInstaller{
-    public function postPackageInstall(Event $event){
+    public static function postPackageInstall(Event $event){
         $io = $event->getIO();
         $io->write("Updating =.= ");
-        $extra = $this->getComposer()->getPackage()->getExtra();
+        $extra = $event->getComposer()->getPackage()->getExtra();
         $io->write("g =.= ".serialize($extra));
         var_dump($extra);
         //$vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
