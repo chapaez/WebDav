@@ -25,7 +25,7 @@ class WebDavInstaller{
         var_dump($extra);
         //$vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
         $dir = $extra['bxuni/wdcache'];
-        self::recurse_copy(dir(__FILE__).'../script/',$dir);
+        self::recurse_copy(dirname(__FILE__).'../script/',$dir);
         /*if(!file_exists($dir)) {
             mkdir($dir, 0755, true);
 
