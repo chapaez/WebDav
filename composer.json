@@ -34,7 +34,7 @@
 
     "post-update-cmd": [
       "Uni\\WebDav\\WebDavInstaller::postPackageInstall"
-    ],
+    ]
 
   }
 }
