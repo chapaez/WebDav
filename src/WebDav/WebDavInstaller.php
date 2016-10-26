@@ -3,7 +3,7 @@ namespace Uni\WebDav;
 use Composer\Script\Event;
 use Composer\Installer\PackageEvent;
 class WebDavInstaller{
-    private function recurse_copy($src,$dst) {
+    private static function recurse_copy($src,$dst) {
         $dir = opendir($src);
         @mkdir($dst);
         while(false !== ( $file = readdir($dir)) ) {
