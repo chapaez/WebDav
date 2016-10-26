@@ -18,6 +18,11 @@
     "php": ">=5.3.0",
     "redisent/redis": "~1.0"
   },
+  "extra": {
+    "bxuni-paths": {
+      "../components/{$name}/": ["type:bitrix-d7-component"]
+    }
+  },
   "autoload": {
     "psr-4": {
       "Uni\\WebDav\\": "src/WebDav"
