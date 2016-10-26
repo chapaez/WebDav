@@ -1,0 +1,23 @@
+{
+  "version":"0.1",
+  "config":{
+    "domain":"test.domashniy.ru",
+    "salt":"DAKqroqiwh19-0,V>@!+_QRJKHT@LKASR#ONnf2092h01f2nzye@f$t#rf2fwo",
+    "protocol":"http",
+    "scriptFolder":"/test/",
+    "documentRoot":"/home/bitrix/ext_www/test.domashniy.ru/",
+    "logFolder":"/home/bitrix/ext_www/test/log/",
+    "webDavUsername":"wd_username",
+    "webDavPassword":"wd_passwd_92h01",
+    "status":"prod",
+    "composerAutoLoader":"/local/php_interface/vendor/autoload.php",
+    "mobile":"true",
+    "mobileSameDomain":"true",
+    "db":{
+      "type":"redis",
+      "url":"redis://localhost",
+      "prefix":"wd"
+    }
+
+  }
+}

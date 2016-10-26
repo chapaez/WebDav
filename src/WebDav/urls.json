@@ -1,0 +1,9 @@
+{
+  "urls":[
+    "/","/test/somescript/","/schedule/","/program/6_kadrov/"
+  ],
+  "urlExpressions":[
+    "^\\/schedule\\/*",
+    "^\\/program\\/*"
+  ]
+}
