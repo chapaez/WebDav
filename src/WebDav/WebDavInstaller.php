@@ -7,6 +7,7 @@ class WebDavInstaller{
         $io = $event->getIO();
         $io->write("Updating =.= ");
         $extra = $this->getComposer()->getPackage()->getExtra();
+        $io->write("g =.= ".serialize($extra));
         var_dump($extra);
         //$vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
         $dir = '/home/bitrix/ext_www/test.domashniy.ru/webdav';
