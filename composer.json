@@ -22,5 +22,14 @@
     "psr-4": {
       "Uni\\WebDav\\": "src/WebDav"
     }
+  },
+  "scripts": {
+    "post-package-install": [
+      "Uni\\WebDav\\WebDavInstaller::postPackageInstall"
+    ],
+
+    "post-package-update": [
+      "Uni\\WebDav\\WebDavInstaller::postPackageInstall"
+    ]
   }
 }
