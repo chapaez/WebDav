@@ -1,7 +1,7 @@
 <?php
 namespace Uni\WebDav;
-use Composer\Script\Event;
-use Composer\Installer\PackageEvent;
+//use Composer\Script\Event;
+//use Composer\Installer\PackageEvent;
 class WebDavInstaller{
     public function postPackageInstall(Event $event){
         //$vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
