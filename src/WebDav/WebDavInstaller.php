@@ -4,6 +4,8 @@ namespace Uni\WebDav;
 //use Composer\Installer\PackageEvent;
 class WebDavInstaller{
     public function postPackageInstall(Event $event){
+        $io = $event->getIO();
+        $io->write("Updating =.= ");
         //$vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
         $dir = '/home/bitrix/ext_www/test.domashniy.ru/webdav';
         echo "LOLOLOLO";
