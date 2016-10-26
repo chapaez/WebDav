@@ -1,6 +1,6 @@
 <?php
 namespace Uni\WebDav;
-use Redisent\Redis;
+use \Redisent\Redis;
 
 class WebDavDBController extends WebDavDBControllerBase {
     /**
@@ -126,8 +126,9 @@ class WebDavDBController extends WebDavDBControllerBase {
         $composerAutoLoaderPath = $wdConf->getComposerAutoLoader();
         $getDBUrl = $wdConf->getComposerAutoLoader();
         $this->prefix = $wdConf->getDBPrefix();
-        require_once( $wdConf->getDocumentRoot().$composerAutoLoaderPath.'' );
-        $this->setRedis(new Redis($getDBUrl));
+        //require_once( $wdConf->getDocumentRoot().$composerAutoLoaderPath.'' );
+        /** @noinspection PhpUndefinedNamespaceInspection */
+        $this->setRedis(new \Redisent\Redis($getDBUrl));
         unset($composerAutoLoaderPath,$getDBUrl);
     }
 
