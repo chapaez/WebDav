@@ -19,7 +19,7 @@
     "redisent/redis": "~1.0"
   },
   "autoload": {
-    "psr-0": {
+    "psr-4": {
       "Uni\\WebDav\\": "src/WebDav"
     }
   }
