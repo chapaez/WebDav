@@ -35,7 +35,7 @@ class WebDavInstaller{
         $io = $event->getIO();
         $io->write("Updating =.= ");
         $extra = $event->getComposer()->getPackage()->getExtra();
-        $vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
+        $vendorDir = $event->getComposer()->getConfig()->get('vendor-dir').'/autoload.php';
         $dir = $extra['bxuni/wdcache'];
         if(!file_exists($dir)) {
             mkdir($dir, 0755, true);
