@@ -35,14 +35,15 @@ class WebDavInstaller{
         $io = $event->getIO();
         $io->write("Updating =.= ");
         $extra = $event->getComposer()->getPackage()->getExtra();
-        var_dump($extra);
-        //$vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
+        $vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
         $dir = $extra['bxuni/wdcache'];
         if(!file_exists($dir)) {
             mkdir($dir, 0755, true);
             copy(dirname(__FILE__) . '/config.json', $dir . '/config.json');
             copy(dirname(__FILE__) . '/urls.json', $dir . '/urls.json');
+
         }
+        file_put_contents($dir.'/include_vendor.php',"<?include('".$vendorDir."');");
         self::recurse_copy(dirname(__FILE__) . '/../script/', $dir.'/script');
         self::recurse_copy(dirname(__FILE__) . '/../adm/', $dir.'/adm');
 
