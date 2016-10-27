@@ -68,7 +68,16 @@ class WebDavController{
         unset($full_url);
         return $file;
     }
-//do you
+
+    static function getUrlList(){
+        $hashes = WebDavDBController::getInstance()->getUrlList();
+        $urlData=[];
+        foreach ($hashes as $hash){
+            $urlData[] = json_decode(WebDavDBController::getInstance()->getHash($hash));
+        }
+        return $urlData;
+    }
+
     /**
      * gets url from db and send this files to front
      * TODO do something with this mobile versions

@@ -38,9 +38,18 @@ class WebDavDBController extends WebDavDBControllerBase {
         return str_replace($entities, $replacements, $url);
     }
 
+    /**
+     * @param $field
+     * @return mixed
+     */
+    public function getHash($field){
+        return $this->getRedis()->hget(
+            $this->getUrlTable(),
+            $field
+        );
+    }
+
     protected function addHash($hash,$params){
-        var_dump( $this->getUrlTable());
-        print_r($params);
         $this->getRedis()->hsetnx(
             $this->getUrlTable(),
             $hash,

@@ -1,7 +1,9 @@
 <?
 header('Content-Type: application/json');
-
-
+include(dirname(__FILE__). '/../../autoload.php');
+use Uni\WebDav as UW;
+$urlList = UW\WebDavFacade::getUrlList();
+var_dump($urlList);
 echo json_encode([
     ["command"=>"del","time"=>1476877601,"url"=>"/schedule/"],
     ["command"=>"add","time"=>1476877123,"url"=>"/schedule/"],

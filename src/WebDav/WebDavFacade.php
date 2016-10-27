@@ -11,6 +11,7 @@ class WebDavFacade{
      * trying to add page to cache
      */
     static function addPostPage(){
+        $err=false;
         try{
             WebDavController::addPage($_POST['url']);
         }catch (\Exception $e){
@@ -40,6 +41,7 @@ class WebDavFacade{
      * get $_POST url and recursive parameters and trying to remove cache files
      */
     static function delPostPage(){
+        $err = false;
         try{
             WebDavController::delPage($_POST['url'],$_POST['recursive']);
         }catch (\Exception $e){
@@ -47,5 +49,14 @@ class WebDavFacade{
         }
         if($err)
             WebDavResponse::getInstance()->printErr($err);
+    }
+
+
+    /**
+     * get queue of urls
+     * @return array
+     */
+    static function getUrlList(){
+        return WebDavController::getUrlList();
     }
 }
