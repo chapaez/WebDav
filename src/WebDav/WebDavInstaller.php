@@ -47,7 +47,7 @@ class WebDavInstaller{
         self::recurse_copy(dirname(__FILE__) . '/../script/', $dir.'/script');
         self::recurse_copy(dirname(__FILE__) . '/../adm/', $dir.'/adm');
 
-        file_put_contents(dirname(__FILE__).'scriptdir.json',json_encode(["dir"=>$dir]));
+        file_put_contents(dirname(__FILE__).'/scriptdir.json',json_encode(["dir"=>$dir]));
 
     }
 }
