@@ -1,6 +1,6 @@
 {
   "urls":[
-    "/","/test/somescript/","/schedule/","/program/6_kadrov/"
+    "/","/test/somescript/","/schedule/"
   ],
   "urlExpressions":[
     "^\\/schedule\\/*",

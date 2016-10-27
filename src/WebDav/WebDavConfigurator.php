@@ -9,8 +9,26 @@ class WebDavConfigurator{
      */
     private static $instance;
     protected static $configFile= 'config.json';
+    protected static $dirNameFile= 'scriptdir.json';
     public $content;
     protected $config;
+    protected $wdDir;
+
+    /**
+     * @return mixed
+     */
+    public function getWdDir()
+    {
+        return $this->wdDir;
+    }
+
+    /**
+     * @param mixed $wdDir
+     */
+    public function setWdDir($wdDir)
+    {
+        $this->wdDir = $wdDir;
+    }
 
     /**
      * @return mixed
@@ -49,7 +67,9 @@ class WebDavConfigurator{
      */
     protected function __construct()
     {
-        $configFileContent=file_get_contents(__DIR__.'/'.self::$configFile);
+        $dir = json_decode(file_get_contents(__DIR__.'/'.self::$dirNameFile));
+        $this->setWdDir($dir['dir']);
+        $configFileContent=file_get_contents($this->getWdDir.'/'.self::$configFile);
         $this->setContent(json_decode($configFileContent));
     }
 
