@@ -29,9 +29,9 @@ class WebDavInstaller{
     }
 
     /**
-     * @param Event $event
+     * @param PackageEvent $event
      */
-    public static function postPackageInstall(Event $event){
+    public static function postPackageInstall(PackageEvent $event){
         $io = $event->getIO();
         $io->write("Updating =.= ");
         $extra = $event->getComposer()->getPackage()->getExtra();
