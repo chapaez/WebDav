@@ -71,6 +71,15 @@ class WebDavResponse{
      * @param $msg
      */
     public function printErr($msg){
+        static::printMsg($msg,'err');
+    }
+
+
+    /**
+     * print message with err status wor
+     * @param $msg
+     */
+    public function logErr($msg){
         switch(WebDavConfigurator::getInstance()->getStatus()){
             case "debug":
                 static::printMsg($msg,'err');

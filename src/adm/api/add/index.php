@@ -1,3 +1,3 @@
 <?
 header('Content-Type: application/json');
-var_dump($_POST);
+\Uni\WebDav\WebDavFacade::addCommand($_POST['command'],$_POST['url'],$_POST['recursive']);

@@ -2,12 +2,25 @@
 namespace Uni\WebDav;
 
 /**
- * Class WebDavFacade
+ * Class WebDavFacade facade with some usefull api :)
  * @package Uni\WebDav
- * facade with some usefull api :)
  */
 class WebDavFacade{
 
+    /**
+     * @param $command
+     * @param $url
+     * @param bool $recursive
+     */
+    static function addCommand($command, $url, $recursive=false){
+        if($command == 'add'){
+            self::addPage($url);
+        }elseif ($command == 'del'){
+            self::delPage($url,$recursive);
+        }else{
+            WebDavResponse::getInstance()->logErr("wrong command");
+        }
+    }
     /**
      * * trying to add page to cache
      * @param $url
@@ -20,7 +33,7 @@ class WebDavFacade{
             $err = $e->getMessage();
         }
         if($err)
-            WebDavResponse::getInstance()->printErr($err);
+            WebDavResponse::getInstance()->logErr($err);
     }
     /**
      * trying to add page to cache from $_post array
@@ -39,24 +52,32 @@ class WebDavFacade{
             try {
                 WebDavController::layFilesFromTable();
             } catch (\Exception $e) {
-                WebDavResponse::getInstance()->printErr($e->getMessage());
+                WebDavResponse::getInstance()->logErr($e->getMessage());
             }
             $wdDb->webDavFree();
         }
     }
 
     /**
-     * get $_POST url and recursive parameters and trying to remove cache files
+     * @param $url
+     * @param bool $recursive
      */
-    static function delPostPage(){
+    static function delPage($url, $recursive=false){
         $err = false;
         try{
-            WebDavController::delPage($_POST['url'],$_POST['recursive']);
+            WebDavController::delPage($url,$recursive=false);
         }catch (\Exception $e){
             $err = $e->getMessage();
         }
         if($err)
-            WebDavResponse::getInstance()->printErr($err);
+            WebDavResponse::getInstance()->logErr($err);
+    }
+
+    /**
+     * get $_POST url and recursive parameters and trying to remove cache files
+     */
+    static function delPostPage(){
+        self::delPage($_POST['url'],$_POST['recursive']);
     }
 
 
