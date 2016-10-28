@@ -14,6 +14,15 @@ class WebDavConfigurator{
     protected $config;
     protected $wdDir;
 
+
+    /**
+     * @return string
+     */
+    public static function getDirNameFile()
+    {
+        return self::$dirNameFile;
+    }
+
     /**
      * @return mixed
      */
@@ -67,7 +76,7 @@ class WebDavConfigurator{
      */
     protected function __construct()
     {
-        $dir = json_decode(file_get_contents(__DIR__.'/'.self::$dirNameFile));
+        $dir = json_decode(file_get_contents(__DIR__.'/'.self::getDirNameFile()));
         $this->setWdDir($dir->dir);
         $configFileContent=file_get_contents($this->getWdDir().'/'.self::$configFile);
         $this->setContent(json_decode($configFileContent));
