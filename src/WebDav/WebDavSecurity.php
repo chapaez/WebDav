@@ -13,4 +13,13 @@ class WebDavSecurity{
     static function checkSalt(){
         return $_POST['salt']==WebDavConfigurator::getInstance()->getSalt();
     }
+
+    /**
+     * Simple base security check - send token to authenticate.
+     * TODO OAUTH
+     * @return bool
+     */
+    static function getToken(){
+        return WebDavConfigurator::getInstance()->getSalt();
+    }
 }
