@@ -14,11 +14,15 @@ class WebDavFacade{
      */
     static function addCommand($command, $url, $recursive=false){
         if($command == 'add'){
-            self::addPage($url);
-            WebDavResponse::getInstance()->printOk("added");
+            if(self::addPage($url))
+                WebDavResponse::getInstance()->printOk("added");
+            else
+                WebDavResponse::getInstance()->printErr("not added");
         }elseif ($command == 'del'){
-            self::delPage($url,$recursive);
-            WebDavResponse::getInstance()->printOk("wrong command");
+            if(self::delPage($url,$recursive))
+                WebDavResponse::getInstance()->printOk("added");
+            else
+                WebDavResponse::getInstance()->printErr("not added");
         }else{
             WebDavResponse::getInstance()->logErr("wrong command ".$command." url=".$url." recursive=".$recursive);
             WebDavResponse::getInstance()->printErr("wrong command");
