@@ -7,18 +7,26 @@ namespace Uni\WebDav;
  * facade with some usefull api :)
  */
 class WebDavFacade{
+
     /**
-     * trying to add page to cache
+     * * trying to add page to cache
+     * @param $url
      */
-    static function addPostPage(){
+    static function addPage($url){
         $err=false;
         try{
-            WebDavController::addPage($_POST['url']);
+            WebDavController::addPage($url);
         }catch (\Exception $e){
             $err = $e->getMessage();
         }
         if($err)
             WebDavResponse::getInstance()->printErr($err);
+    }
+    /**
+     * trying to add page to cache from $_post array
+     */
+    static function addPostPage(){
+        self::addPage($_POST['url']);
     }
 
     /**
