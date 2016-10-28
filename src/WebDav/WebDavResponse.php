@@ -106,7 +106,7 @@ class WebDavResponse{
     public function printMsg($msg, $status){
         $msg = static::makeMsg($msg);
         $msg['status'] = $status;
-        $msg = static::formateData($msg);
+        $msg = static::formatData($msg);
         echo $msg;
     }
 
