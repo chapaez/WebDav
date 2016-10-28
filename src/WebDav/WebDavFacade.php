@@ -15,16 +15,20 @@ class WebDavFacade{
     static function addCommand($command, $url, $recursive=false){
         if($command == 'add'){
             self::addPage($url);
+            WebDavResponse::getInstance()->printOk("added");
         }elseif ($command == 'del'){
             self::delPage($url,$recursive);
+            WebDavResponse::getInstance()->printOk("wrong command");
         }else{
             WebDavResponse::getInstance()->logErr("wrong command ".$command." url=".$url." recursive=".$recursive);
             WebDavResponse::getInstance()->printErr("wrong command");
         }
     }
+
     /**
      * * trying to add page to cache
      * @param $url
+     * @return bool true if added and false otherwise
      */
     static function addPage($url){
         $err=false;
@@ -33,8 +37,12 @@ class WebDavFacade{
         }catch (\Exception $e){
             $err = $e->getMessage();
         }
-        if($err)
+        if($err) {
             WebDavResponse::getInstance()->logErr($err);
+            return false;
+        }else{
+            return true;
+        }
     }
     /**
      * trying to add page to cache from $_post array
@@ -62,16 +70,22 @@ class WebDavFacade{
     /**
      * @param $url
      * @param bool $recursive
+     * @return bool true if added and false otherwise
      */
     static function delPage($url, $recursive=false){
         $err = false;
         try{
-            WebDavController::delPage($url,$recursive=false);
+            WebDavController::delPage($url,$recursive);
         }catch (\Exception $e){
             $err = $e->getMessage();
         }
-        if($err)
+        if($err){
             WebDavResponse::getInstance()->logErr($err);
+            return false;
+        }else{
+            return true;
+        }
+
     }
 
     /**
