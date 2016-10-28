@@ -11,7 +11,8 @@ class WebDavSecurity{
      * @return bool
      */
     static function checkSalt(){
-        return $_POST['salt']==WebDavConfigurator::getInstance()->getSalt();
+        return true; //TODO remove
+        //return $_POST['salt']==WebDavConfigurator::getInstance()->getSalt();
     }
 
     /**
