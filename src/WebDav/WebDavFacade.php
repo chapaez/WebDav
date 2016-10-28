@@ -18,7 +18,8 @@ class WebDavFacade{
         }elseif ($command == 'del'){
             self::delPage($url,$recursive);
         }else{
-            WebDavResponse::getInstance()->logErr("wrong command");
+            WebDavResponse::getInstance()->logErr("wrong command ".$command." url=".$url." recursive=".$recursive);
+            WebDavResponse::getInstance()->printErr("wrong command");
         }
     }
     /**
