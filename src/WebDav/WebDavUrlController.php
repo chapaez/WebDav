@@ -66,8 +66,8 @@ class WebDavUrlController extends WebDavUrlControllerBase{
      */
     protected function __construct()
     {
-        $dir = json_decode(file_get_contents(__DIR__.'/'.WebDavConfigurator::getDirNameFile()));
-        $configFileContent=file_get_contents($dir.'/'.self::$configFile);
+        $dir_obj = json_decode(file_get_contents(__DIR__.'/'.WebDavConfigurator::getDirNameFile()));
+        $configFileContent=file_get_contents($dir_obj->dir.'/'.self::$configFile);
         $this->setContent(json_decode($configFileContent));
         $this->setUrls($this->getContent()->urls);
         $this->setUrlExpressions($this->getContent()->urlExpressions);
