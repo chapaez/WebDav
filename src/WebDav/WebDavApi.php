@@ -29,7 +29,7 @@ class WebDavApi{
 
         if( $curl = curl_init() ) {
 
-            var_dump($url);
+            WebDavResponse::getInstance()->printOk('out='.$url);
             $handle = fopen('log.tmp', 'w');
             curl_setopt($curl, CURLOPT_VERBOSE, 1);
             curl_setopt($curl, CURLOPT_STDERR, $handle);
@@ -45,8 +45,7 @@ class WebDavApi{
                                                    ]
                         );
             $out = curl_exec($curl);
-            echo 'out=';
-            echo($out);
+            WebDavResponse::getInstance()->printOk('out='.$out);
             curl_close($curl);
             unset($out);
         }
