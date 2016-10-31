@@ -107,4 +107,8 @@ class WebDavFacade{
     static function getUrlList(){
         return WebDavController::getUrlList();
     }
+
+    static function clearUrlList(){
+        return WebDavController::clearUrlList();
+    }
 }

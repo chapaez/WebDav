@@ -100,6 +100,14 @@ class WebDavDBController extends WebDavDBControllerBase {
     }
 
     /**
+     * return array of command:url
+     * @return array
+     */
+    function clearUrlList(){
+        return $this->getRedis()->del($this->getUrlTable());
+    }
+
+    /**
      * @param $status
      */
     private function setStatus($status){

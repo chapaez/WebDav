@@ -119,4 +119,8 @@ class WebDavController{
         }
         unset($urlArr,$wdDB,$content);
     }
+
+    function clearUrlList(){
+        WebDavDBController::getInstance()->clearUrlList();
+    }
 }
