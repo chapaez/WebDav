@@ -98,7 +98,7 @@ class WebDavResponse{
                 static::printMsg($msg,'ok');
             default:
                 $log = new WebDavLog();
-                $log->AddError($msg);
+                $log->Add($msg);
                 break;
         }
 

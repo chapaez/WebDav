@@ -18,7 +18,7 @@ class WebDavController{
             throw new \Exception('wrong salt');
         //do we need to cache?
         if(!WebDavUrlController::getInstance()->checkUrl($url))
-            throw new \Exception('url not in list');
+            throw new \Exception('url '.$url.' not in list');
 
         if(!$recursive)
             $url.='index.html';
@@ -36,8 +36,9 @@ class WebDavController{
             throw new \Exception('wrong salt');
         //do we need to cache?
         if(!WebDavUrlController::getInstance()->checkUrl($url))
-            throw new \Exception('url not in list');
+            throw new \Exception('url '.$url.' not in list');
         //ok lets save it in DB
+        WebDavResponse::getInstance()->logOk("adding url: ".$url);
         WebDavDBAdd::getInstance()->addUrl($url);
     }
 
