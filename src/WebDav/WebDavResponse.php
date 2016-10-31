@@ -9,10 +9,7 @@ class WebDavResponse{
      * @var WebDavResponse - "singleton"
      */
     protected static $instance;
-    /**
-     * @var
-     */
-    private $config;
+
 
     /**
      * WebDavResponse constructor.
@@ -80,6 +77,22 @@ class WebDavResponse{
      * @param $msg
      */
     public function logErr($msg){
+        switch(WebDavConfigurator::getInstance()->getStatus()){
+            case "debug":
+                static::printMsg($msg,'err');
+            default:
+                $log = new WebDavLog();
+                $log->AddError($msg);
+                break;
+        }
+
+    }
+
+    /**
+     * print message with err status wor
+     * @param $msg
+     */
+    public function logOk($msg){
         switch(WebDavConfigurator::getInstance()->getStatus()){
             case "debug":
                 static::printMsg($msg,'err');

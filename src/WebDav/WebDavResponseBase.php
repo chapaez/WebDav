@@ -15,6 +15,13 @@ abstract class WebDavResponseBase{
      * @param $msg
      * @return mixed
      */
+    abstract function logOk($msg);
+
+
+    /**
+     * @param $msg
+     * @return mixed
+     */
     abstract function pringErr($msg);
 
     /**
@@ -22,6 +29,12 @@ abstract class WebDavResponseBase{
      * @return mixed
      */
     abstract function printMsg($msg);
+
+    /**
+     * @param $msg
+     * @return mixed
+     */
+    abstract function printOk($msg);
 
     /**
      * @param $data
