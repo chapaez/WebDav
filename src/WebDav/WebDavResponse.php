@@ -95,7 +95,7 @@ class WebDavResponse{
     public function logOk($msg){
         switch(WebDavConfigurator::getInstance()->getStatus()){
             case "debug":
-                static::printMsg($msg,'err');
+                static::printMsg($msg,'ok');
             default:
                 $log = new WebDavLog();
                 $log->AddError($msg);
