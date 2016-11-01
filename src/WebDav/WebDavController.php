@@ -54,7 +54,7 @@ class WebDavController{
         if($mobile){
             $options  = array($conf->getProtocol() => array('user_agent' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; BOLT/2.340) AppleWebKit/530+ (KHTML, like Gecko) Version/4.0 Safari/530.17 UNTRUSTED/1.0 3gpp-gba'));
         }else{
-            $options  = array($conf->getProtocol() => array('user_agent' => 'Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.0; SV1; Crazy Browser 9.0.04)'));
+            $options  = array($conf->getProtocol() => array('user_agent' => 'Mozilla/5.0 (compatible; MSIE 11.0; Windows NT 6.0; SV1; Crazy Browser 9.0.04)'));
         }
 
         $context  = stream_context_create($options);
