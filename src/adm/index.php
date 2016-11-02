@@ -9,6 +9,23 @@
 		.scroll-content{
 			max-height: 600px;
 		}
+		.form-inline .form-control{
+			width: calc(100% - 80px);
+		}
+		.table-url td {
+			animation: flash .5s ease;
+		}
+		@keyframes flash{
+			0% {
+				color: red;
+			}
+			50%{
+				color: #000;
+			},
+			100%{
+				color: red;
+			}
+		}
 	</style>
 </head>
 <body>
