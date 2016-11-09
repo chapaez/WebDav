@@ -90,6 +90,7 @@
 		btn.reset.addEventListener('click', function() {
 				let xhr = new XMLHttpRequest();
 				xhr.open('GET', API.reset, true);
+				xhr.send();
 				xhr.onreadystatechange = function() {
 					if(this.readyState != 4) return;
 					if(this.status != 200) {
