@@ -98,7 +98,6 @@
 					}
 					console.log(this.responseText);
 				}
-			}
 		});
 
 		btn.add.addEventListener('click', function() {
