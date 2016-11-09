@@ -77,7 +77,7 @@
 	function onReady() {
 		let btn = {
 			add: document.querySelector('.js-btn-add'),
-			clear: document.querySelector('.js-btn-clear')
+			clear: document.querySelector('.js-btn-clear'),
 			reset: document.querySelector('.js-btn-reset')
 		};
 		let input = {
