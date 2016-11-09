@@ -5,7 +5,8 @@
 
 	const API = {
 		list: '/webdav/adm/api/list/',
-		add: '/webdav/adm/api/add/'
+		add: '/webdav/adm/api/add/',
+		clear: '/webdav/adm/api/delete'
 	};
 
 	document.addEventListener('DOMContentLoaded', onReady);
@@ -77,12 +78,28 @@
 		let btn = {
 			add: document.querySelector('.js-btn-add'),
 			clear: document.querySelector('.js-btn-clear')
+			reset: document.querySelector('.js-btn-reset')
 		};
 		let input = {
 			clear: document.querySelector('.js-input-clear'),
 			add: document.querySelector('.js-input-add'),
 			checkbox: document.querySelector('.js-checkbox-clear')
 		};
+
+
+		btn.reset.addEventListener('click', function() {
+				let xhr = new XMLHttpRequest();
+				xhr.open('GET', API.reset, true);
+				xhr.onreadystatechange = function() {
+					if(this.readyState != 4) return;
+					if(this.status != 200) {
+						console.log(`${this.status} - ${this.statusText}`);
+						return false;
+					}
+					console.log(this.responseText);
+				}
+			}
+		});
 
 		btn.add.addEventListener('click', function() {
 			if(!input.add.value.length) {

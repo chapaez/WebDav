@@ -83,8 +83,9 @@
 				</div>
 			</div>
 			<div class="col-lg-6">
-				<h2 class="text-lg-center">URL list</h2>
-
+				<h2 class="text-lg-center">URL list
+					<button type="submit" class="btn btn-primary pull-right js-btn-reset">Reset</button>
+				</h2>
 				<div class="pre-scrollable scroll-content">
 					<table class="table  table-striped table-hover">
 						<thead class="thead-inverse">
