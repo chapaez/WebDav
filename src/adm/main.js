@@ -6,7 +6,7 @@
 	const API = {
 		list: '/webdav/adm/api/list/',
 		add: '/webdav/adm/api/add/',
-		clear: '/webdav/adm/api/delete'
+		reset: '/webdav/adm/api/delete'
 	};
 
 	document.addEventListener('DOMContentLoaded', onReady);
